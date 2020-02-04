@@ -21,9 +21,11 @@ class App extends Component {
     }
     
     render () {
-        const list = <div className="list-container">
-            <List data={this.state.list}/>
-        </div>
+        const list = (
+            <div className="list-container">
+                <List data={this.state.list}/>
+            </div>
+        )
         
         return (
             <div className="App">
