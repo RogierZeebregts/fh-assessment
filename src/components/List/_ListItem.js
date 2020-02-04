@@ -1,7 +1,7 @@
 import React from 'react'
-import classes from '../List.module.scss'
+import classes from './List.module.scss'
 
-const listItem = (props) => {
+const _ListItem = props => {
     return (
         <div className="p-2">
             <div className={classes.Event}>
@@ -14,4 +14,4 @@ const listItem = (props) => {
     )
 }
 
-export default listItem
+export default _ListItem

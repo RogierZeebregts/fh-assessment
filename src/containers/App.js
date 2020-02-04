@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-// import API from '../lib/api'
-import Events from '../assets/events.json'
+import API from '../lib/api'
+import { groupListByDate } from '../lib/helpers'
+// import Events from '../assets/events.json'
 import Header from '../components/Base/header'
 import List from '../components/List/List'
 
@@ -12,12 +13,13 @@ class App extends Component {
     }
     
     componentDidMount () {
-        this.setState({list: Events})
-        // API.get(`/public/events`)
-        //    .then(res => {
-        //        const list = res.data
-        //        this.setState({list})
-        //    })
+        // this.setState({list: groupListByDate(Events)})
+        API.get(`/public/events`)
+           .then(res => {
+               // const list = groupListByDate(res.data)
+               const list = res.data
+               this.setState({list})
+           })
     }
     
     render () {
