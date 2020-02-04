@@ -1,0 +1,15 @@
+.Header {
+    color: #fff;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    
+    .logo {
+        display: block;
+        height: 53px;
+        vertical-align: middle;
+        width: 108px;
+        .logoPath {
+            fill: #fff;
+        }
+    }
+}

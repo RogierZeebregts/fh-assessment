@@ -1,0 +1,35 @@
+@import-normalize ;
+
+@font-face {
+    font-family: Replica;
+    src: url(./assets/fonts/lineto-replica-light.woff2) format("woff2"), url(./assets/fonts/lineto-replica-light.woff) format("woff");
+    font-style: normal;
+    font-display: optional;
+    font-weight: 300
+}
+
+@font-face {
+    font-family: Replica;
+    src: url(./assets/fonts/lineto-replica-bold.woff2) format("woff2"), url(./assets/fonts/lineto-replica-bold.woff) format("woff");
+    font-style: normal;
+    font-weight: 700;
+    font-display: optional
+}
+
+html {
+    line-height: 1.5;
+    font-family: Replica, sans-serif;
+}
+
+body {
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: .75px;
+    margin: 0;
+}
+
+.App {
+    background: #2f47de;
+    color: #fff;
+    min-height: 100vh;
+}
