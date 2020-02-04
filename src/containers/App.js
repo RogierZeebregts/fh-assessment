@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import API from '../lib/api'
+// import API from '../lib/api'
 import Events from '../assets/events.json'
 import Header from '../components/Base/header'
 import List from '../components/List/List'
@@ -8,10 +8,11 @@ import './App.scss'
 
 class App extends Component {
     state = {
-        list: Events,
+        list: [],
     }
     
     componentDidMount () {
+        this.setState({list: Events})
         // API.get(`/public/events`)
         //    .then(res => {
         //        const list = res.data

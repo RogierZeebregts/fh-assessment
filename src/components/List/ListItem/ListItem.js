@@ -4,8 +4,12 @@ import classes from '../List.module.scss'
 const listItem = (props) => {
     return (
         <div className="p-2">
-            <h3>{props.data.title}</h3>
-            
+            <div className={classes.Event}>
+                <div>
+                    <h2>{props.data.performer}</h2>
+                    <h3>{props.data.title}</h3>
+                </div>
+            </div>
         </div>
     )
 }
