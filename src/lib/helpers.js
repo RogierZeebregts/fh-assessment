@@ -6,6 +6,7 @@ import Moment from 'moment'
  */
 export function groupListByDate (json) {
     const list = _createGroupedList(json)
+    console.log(list)
     return _convertObjectToArray(list)
 }
 
@@ -24,8 +25,16 @@ function _createGroupedList (json) {
         obj[key].push(item)
         
         return obj
-    }, {})
+    }, [])
 }
+
+// let group = cars.reduce((r, a) => {
+//     console.log("a", a);
+//     console.log('r', r);
+//     r[a.make] = [...r[a.make] || [], a];
+//     return r;
+// }, {});
+// console.log("group", group);
 
 /**
  * Generator
