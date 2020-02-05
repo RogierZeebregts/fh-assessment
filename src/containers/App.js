@@ -16,8 +16,8 @@ class App extends Component {
         // this.setState({list: groupListByDate(Events)})
         API.get(`/public/events`)
            .then(res => {
-               // const list = groupListByDate(res.data)
-               const list = res.data
+               const list = groupListByDate(res.data)
+               // const list = res.data
                this.setState({list})
            })
     }
