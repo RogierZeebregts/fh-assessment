@@ -3,20 +3,22 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
 } from 'react-router-dom'
 
 import API from '../lib/api'
-import { groupListByDate } from '../lib/helpers'
+import { groupListByDate } from '../components/List/helpers'
 // import Events from '../assets/events.json'
+
 import Header from '../components/Base/header'
 import List from '../components/List/List'
+import Details from '../components/Details/Details'
 
 import './App.scss'
 
 class App extends Component {
     state = {
         list: [],
+        activeDetails: {},
     }
     
     componentDidMount () {
@@ -27,22 +29,24 @@ class App extends Component {
            })
     }
     
+    // https://reacttraining.com/react-router/web/example/url-params
+    // https://towardsdatascience.com/passing-data-between-react-components-parent-children-siblings-a64f89e24ecf
     render () {
-        const list = (
-            <div className="list-container">
-                <List data={this.state.list}/>
-            </div>
-        )
-        
         return (
             <div className="App">
                 <Header/>
                 
                 <div className="container">
                     <Router>
-                        <Route path="/">
-                            {list}
-                        </Route>
+                        <Switch>
+                            <Route path="/:id/:slug">
+                                <Details data={this.state.activeDetails}/>
+                            </Route>
+                            
+                            <Route path="/">
+                                <List list={this.state.list}/>
+                            </Route>
+                        </Switch>
                     </Router>
                 </div>
             </div>
