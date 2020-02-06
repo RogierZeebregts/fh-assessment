@@ -1,4 +1,11 @@
 import React, { Component } from 'react'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+} from 'react-router-dom'
+
 import API from '../lib/api'
 import { groupListByDate } from '../lib/helpers'
 // import Events from '../assets/events.json'
@@ -13,12 +20,9 @@ class App extends Component {
     }
     
     componentDidMount () {
-        // this.setState({list: groupListByDate(Events)})
         API.get(`/public/events`)
            .then(res => {
-               // console.log(res.data);
                const list = groupListByDate(res.data)
-               // const list = res.data
                this.setState({list})
            })
     }
@@ -35,10 +39,11 @@ class App extends Component {
                 <Header/>
                 
                 <div className="container">
-                    <div className="row">
-                        <div className="col">{list}</div>
-                        <div className="col">2</div>
-                    </div>
+                    <Router>
+                        <Route path="/">
+                            {list}
+                        </Route>
+                    </Router>
                 </div>
             </div>
         )

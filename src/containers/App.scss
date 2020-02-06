@@ -1,6 +1,30 @@
 .App {
-  background: #000;
-  //background: var(--main-bg-color);
-  color: #fff;
-  min-height: 100vh;
+    background: #000;
+    //background: var(--main-bg-color);
+    color: #fff;
+    min-height: 100vh;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    padding: 10px 20px;
+    &.bg-black {
+        background-color: #000;
+    }
+    &.br-white {
+        border: solid 1px #fff;
+    }
 }

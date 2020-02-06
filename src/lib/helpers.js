@@ -5,9 +5,10 @@ import Moment from 'moment'
  * @returns {[]}
  */
 export function groupListByDate (json) {
+    return json
     const list = _createGroupedList(json)
-    console.log(list)
-    return _convertObjectToArray(list)
+    return list
+    // return _convertObjectToArray(list)
 }
 
 /**
@@ -26,6 +27,16 @@ function _createGroupedList (json) {
         
         return obj
     }, [])
+    
+    // console.debug(reduced)
+}
+
+let test = {
+    date: '02022020',
+    items: [
+        {},
+        {},
+    ],
 }
 
 // let group = cars.reduce((r, a) => {

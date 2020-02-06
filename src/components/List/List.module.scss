@@ -8,4 +8,22 @@
     h3 {
         margin: 0;
     }
+    
+    h2 {
+        margin-bottom: 10px;
+        padding-bottom: 7px;
+        position: relative;
+        &:hover {
+            &:after {
+                background-color: #fff;
+                bottom: 0;
+                content: '';
+                display: inline-block;
+                height: 2px;
+                left: 0;
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
 }
