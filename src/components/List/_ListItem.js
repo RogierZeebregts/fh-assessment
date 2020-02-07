@@ -1,11 +1,9 @@
 import React from 'react'
-import Moment from 'react-moment'
 import {Link} from 'react-router-dom'
-import 'moment/locale/nl'
 import slugify from 'slugify'
+import Meta from '../Base/meta'
 
 import classes from './List.module.scss'
-
 const ListItem = props => {
     const url = `/${props.data.id}/${slugify(props.data.title)}`
     
@@ -14,7 +12,7 @@ const ListItem = props => {
             <div className={classes.Event}>
                 <div className="d-flex w-100">
                     <div className="p-2 pr-4 d-flex align-items-center">
-                        <Moment format='dd DD MMM' locale='nl'>{props.data.startsAt}</Moment>
+                        <Meta date={props.data.startsAt} />
                     </div>
                     
                     <div className="p-2">

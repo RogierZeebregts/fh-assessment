@@ -20,11 +20,28 @@ h1, h2, h3 {
 
 .button {
     display: inline-flex;
+    overflow: hidden;
     padding: 10px 20px;
+    position: relative;
     &.bg-black {
         background-color: rgba(#000, 0.1);
     }
     &.br-white {
         border: solid 1px #fff;
+    }
+    &:after {
+        background-color: #fff;
+        content: '';
+        height: 150%;
+        left: -10px;
+        opacity: 0.2;
+        position: absolute;
+        transform: rotate(-10deg);
+        transition: top 0.1s linear;
+        top: -170%;
+        width: 120%;
+    }
+    &:hover:after {
+        top: -10px
     }
 }

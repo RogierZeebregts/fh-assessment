@@ -31,23 +31,27 @@ class App extends Component {
     
     // https://reacttraining.com/react-router/web/example/url-params
     // https://towardsdatascience.com/passing-data-between-react-components-parent-children-siblings-a64f89e24ecf
+    
+    // https://github.com/rajatgeekyants/superhero DATAPROVIDER
+    // https://www.taniarascia.com/using-context-api-in-react/
+    
     render () {
         return (
             <div className="App">
                 <Header/>
                 
                 <div className="container">
-                    <Router>
-                        <Switch>
-                            <Route path="/:id/:slug">
-                                <Details data={this.state.activeDetails}/>
-                            </Route>
-                            
-                            <Route path="/">
-                                <List list={this.state.list}/>
-                            </Route>
-                        </Switch>
-                    </Router>
+                        <Router>
+                            <Switch>
+                                <Route path="/:id/:slug">
+                                    <Details data={this.state.activeDetails}/>
+                                </Route>
+                                
+                                <Route path="/">
+                                    <List list={this.state.list}/>
+                                </Route>
+                            </Switch>
+                        </Router>
                 </div>
             </div>
         )
