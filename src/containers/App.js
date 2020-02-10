@@ -7,9 +7,7 @@ import {
 
 import API from '../lib/api'
 import { groupListByDate } from '../components/List/helpers'
-// import Events from '../assets/events.json'
-
-import Header from '../components/Base/header'
+import Header from '../components/Base/Header'
 import List from '../components/List/List'
 import Details from '../components/Details/Details'
 
@@ -26,22 +24,18 @@ class App extends Component {
         API.get(`/public/events`)
            .then(res => {
                const list = groupListByDate(res.data)
-               this.setState({list})
-               this.setState({filteredList: list})
+               this.setState({
+                   list,
+                   filteredList: list,
+                   activeDetails: list[0]
+               })
            })
     }
-    
-    // https://reacttraining.com/react-router/web/example/url-params
-    // https://towardsdatascience.com/passing-data-between-react-components-parent-children-siblings-a64f89e24ecf
-    
-    // https://github.com/rajatgeekyants/superhero DATAPROVIDER
-    // https://www.taniarascia.com/using-context-api-in-react/
     
     render () {
         return (
             <div className="App">
                 <Header/>
-                
                 <div className="container">
                     <Router>
                         <Switch>
@@ -50,7 +44,11 @@ class App extends Component {
                             </Route>
                             
                             <Route path="/">
-                                <List list={this.state.list} filteredList={this.state.filteredList} this={this} />
+                                <List
+                                    list={this.state.list}
+                                    filteredList={this.state.filteredList}
+                                    this={this}
+                                />
                             </Route>
                         </Switch>
                     </Router>
@@ -61,3 +59,9 @@ class App extends Component {
 }
 
 export default App
+
+// https://reacttraining.com/react-router/web/example/url-params
+// https://towardsdatascience.com/passing-data-between-react-components-parent-children-siblings-a64f89e24ecf
+
+// https://github.com/rajatgeekyants/superhero DATAPROVIDER
+// https://www.taniarascia.com/using-context-api-in-react/

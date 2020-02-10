@@ -2,7 +2,7 @@ import React from 'react'
 import ListItem from './_ListItem'
 import ListFilter from './_ListFilter'
 
-import { filterHandler } from './helpers'
+import { filterHandler, setGenre } from './helpers'
 
 const ListContainer = (props) => {
     let list = props.filteredList.map((item, index) => {
@@ -14,7 +14,12 @@ const ListContainer = (props) => {
     
     return (
         <div>
-            <ListFilter changed={(event) => filterHandler(event, props.list, props.filteredList, props.this)}/>
+            <ListFilter
+                list={props.list}
+                filteredList={props.filteredList}
+                changed={(event) => filterHandler(event, props.list, props.this)}
+                genreChanged={(event) => setGenre(event, props.list, props.this)}
+            />
             {list}
         </div>
     )

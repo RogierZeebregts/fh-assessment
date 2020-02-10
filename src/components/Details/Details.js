@@ -16,34 +16,34 @@ const details = (props) => {
         
         <div className={`${classes.spotlight} d-flex`}>
             <div className={classes.spotlight__imageholder}>
-                <img className={`${classes.image} rounded`} src={Event.images[0]} alt={Event.performer}/>
+                {/*<img className={`${classes.image} rounded`} src={props.data.images[0]} alt={props.data.performer}/>*/}
             </div>
             
             <div className={`${classes.spotlight__content} d-flex align-items-center`}>
                 <div>
-                    <DateFormat date={Event.startsAt}/>
-                    <h1>{Event.performer}</h1>
-                    <h2>{Event.title}</h2>
+                    <DateFormat date={props.data.startsAt}/>
+                    <h1>{props.data.performer}</h1>
+                    <h2>{props.data.title}</h2>
                     
                     <div className={`${classes.EventInfo} pt-5`}>
                         <div>
-                            <span className="pb-3 pr-4 pt-3">{Event.genre}</span>
-                            <span className="pb-3 pr-4 pt-3">Locatie <span className="bold">{Event.location}</span></span>
+                            <span className="pb-3 pr-4 pt-3">{props.data.genre}</span>
+                            <span className="pb-3 pr-4 pt-3">Locatie <span className="bold">{props.data.location}</span></span>
                         </div>
                         <div className="d-flex">
-                            <span className="bold pb-3 pr-4 pt-3"><Moment date={Event.startsAt} format='dd DD MMM YYYY' locale={'nl'}/> </span>
-                            <span className="pb-3 pr-4 pt-3">Start: <span className="bold"><Moment date={Event.startsAt} format='HH:mm'/></span></span>
-                            <span className="pb-3 pr-4 pt-3">Einde: <span className="bold"><Moment date={Event.endsAt} format='HH:mm'/></span></span>
+                            <span className="bold pb-3 pr-4 pt-3"><Moment date={props.data.startsAt} format='dd DD MMM YYYY' locale={'nl'}/> </span>
+                            <span className="pb-3 pr-4 pt-3">Start: <span className="bold"><Moment date={props.data.startsAt} format='HH:mm'/></span></span>
+                            <span className="pb-3 pr-4 pt-3">Einde: <span className="bold"><Moment date={props.data.endsAt} format='HH:mm'/></span></span>
                         </div>
                         
-                        <Photos photos={Event.images} />
+                        {/*<Photos photos={props.data.images} />*/}
                     </div>
                 </div>
             </div>
         </div>
         
         <article className={classes.EventInfo}>
-            <div>{ReactHtmlParser(Event.description)}</div>
+            <div>{ReactHtmlParser(props.data.description)}</div>
         </article>
     </div>
 }

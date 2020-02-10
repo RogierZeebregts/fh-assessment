@@ -18,6 +18,10 @@ h1, h2, h3 {
     margin: 0;
 }
 
+h1.large {
+    font-size: 3.2rem;
+}
+
 .w-100 {
     width: 100%;
 }
@@ -70,4 +74,45 @@ h1, h2, h3 {
 
 ::placeholder {
     color: #fff;
+}
+
+.select-container {
+    height: 50px;
+    position: relative;
+    .select-input {
+        appearance: none;
+        background: transparent;
+        border: none;
+        border-bottom: solid 1px #fff;
+        color: #fff;
+        font-size: 1.2rem;
+        height: 100%;
+        left: 0;
+        outline: none;
+        position: relative;
+        width: 100%;
+        &::-ms-expand {
+            display: none;
+        }
+        &:focus {
+            outline: none;
+        }
+        option {
+            font-size: 1rem;
+        }
+        option:focus {
+            outline: none;
+        }
+    }
+    &:after {
+        background: url(../assets/images/arrow-down.svg) no-repeat center / 30%;
+        content: '';
+        pointer-events: none;
+        display: block;
+        height: 100%;
+        position: absolute;
+        right: 15px;
+        top: 0;
+        width: 45px;
+    }
 }

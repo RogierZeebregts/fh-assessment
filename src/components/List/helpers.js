@@ -27,8 +27,6 @@ function _createGroupedList (json) {
         
         return obj
     }, [])
-    
-    // console.debug(reduced)
 }
 
 // let test = {
@@ -46,6 +44,15 @@ function _createGroupedList (json) {
 //     return r;
 // }, {});
 // console.log("group", group);
+
+// var groupBy = function(xs, key) {
+//     return xs.reduce(function(rv, x) {
+//         (rv[x[key]] = rv[x[key]] || []).push(x);
+//         return rv;
+//     }, {});
+// };
+//
+// console.log(groupBy(['one', 'two', 'three'], 'length'));
 
 /**
  * Generator
@@ -82,16 +89,30 @@ function _addLeadingZero (dig) {
 /**
  * @param event
  * @param list
- * @returns {*}
+ * @param filteredList
+ * @param t
  */
-export function filterHandler (event, list, filteredList, t) {
-    let searchValue = event.target.value
-    let returnList = list.filter(ev => {
+export function filterHandler (event, list, t) {
+    const searchValue = event.target.value
+    const returnList = list.filter(ev => {
         return (
             (ev.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
             || (ev.performer.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
         )
     })
+    
+    t.setState({filteredList: returnList})
+}
+
+/**
+ * @param event
+ * @param list
+ * @param filteredList
+ * @param t
+ */
+export function setGenre (event, list, t) {
+    const genre = event.target.value
+    const returnList = genre ? list.filter(ev => ev.genre === genre) : list
     
     t.setState({filteredList: returnList})
 }
