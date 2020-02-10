@@ -1,4 +1,8 @@
-.Header {
+.spotlight__content {
+    flex: 0 1 80%;
+    min-height: 65vh;
+    position: relative;
+    
     h1 {
         font-size: 4.5rem;
     }
@@ -13,6 +17,14 @@
     }
 }
 
-.EventInfo {
-
+.spotlight__imageholder {
+    height: 60vh;
+    left: 50%;
+    position: absolute;
+    width: 60vh;
+    
+    .image {
+        height: 100%;
+        width: 100%;
+    }
 }

@@ -5,6 +5,10 @@
     min-height: 100vh;
 }
 
+.bold {
+    font-weight: 700;
+}
+
 a {
     color: #fff;
     text-decoration: none;
@@ -16,6 +20,10 @@ h1, h2, h3 {
 
 .w-100 {
     width: 100%;
+}
+
+.rounded {
+    border-radius: 50%;
 }
 
 .button {
@@ -44,4 +52,22 @@ h1, h2, h3 {
     &:hover:after {
         top: -10px
     }
+}
+
+.text-input {
+    background-color: var(--seconday-bg-color);
+    border: none;
+    border-bottom: solid 1px #fff;
+    color: #fff;
+    font-size: 1.2rem;
+    max-width: 250px;
+    padding: 15px 0;
+    width: 100%;
+    &:focus {
+        outline: none;
+    }
+}
+
+::placeholder {
+    color: #fff;
 }

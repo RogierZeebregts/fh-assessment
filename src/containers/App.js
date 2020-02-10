@@ -18,6 +18,7 @@ import './App.scss'
 class App extends Component {
     state = {
         list: [],
+        filteredList: [],
         activeDetails: {},
     }
     
@@ -26,6 +27,7 @@ class App extends Component {
            .then(res => {
                const list = groupListByDate(res.data)
                this.setState({list})
+               this.setState({filteredList: list})
            })
     }
     
@@ -41,17 +43,17 @@ class App extends Component {
                 <Header/>
                 
                 <div className="container">
-                        <Router>
-                            <Switch>
-                                <Route path="/:id/:slug">
-                                    <Details data={this.state.activeDetails}/>
-                                </Route>
-                                
-                                <Route path="/">
-                                    <List list={this.state.list}/>
-                                </Route>
-                            </Switch>
-                        </Router>
+                    <Router>
+                        <Switch>
+                            <Route path="/:id/:slug">
+                                <Details data={this.state.activeDetails}/>
+                            </Route>
+                            
+                            <Route path="/">
+                                <List list={this.state.list} filteredList={this.state.filteredList} this={this} />
+                            </Route>
+                        </Switch>
+                    </Router>
                 </div>
             </div>
         )

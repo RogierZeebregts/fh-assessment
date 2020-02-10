@@ -31,13 +31,13 @@ function _createGroupedList (json) {
     // console.debug(reduced)
 }
 
-let test = {
-    date: '02022020',
-    items: [
-        {},
-        {},
-    ],
-}
+// let test = {
+//     date: '02022020',
+//     items: [
+//         {},
+//         {},
+//     ],
+// }
 
 // let group = cars.reduce((r, a) => {
 //     console.log("a", a);
@@ -77,4 +77,21 @@ function _convertObjectToArray (obj) {
  */
 function _addLeadingZero (dig) {
     return (dig < 10 ? '0' : '') + dig
+}
+
+/**
+ * @param event
+ * @param list
+ * @returns {*}
+ */
+export function filterHandler (event, list, filteredList, t) {
+    let searchValue = event.target.value
+    let returnList = list.filter(ev => {
+        return (
+            (ev.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
+            || (ev.performer.toLowerCase().indexOf(searchValue.toLowerCase()) > -1)
+        )
+    })
+    
+    t.setState({filteredList: returnList})
 }
