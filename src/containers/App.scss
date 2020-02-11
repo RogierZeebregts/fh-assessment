@@ -31,6 +31,7 @@ h1.large {
 }
 
 .button {
+    color: #fff;
     display: inline-flex;
     overflow: hidden;
     padding: 10px 20px;
@@ -117,4 +118,26 @@ h1.large {
         top: 0;
         width: 45px;
     }
+}
+
+.dialog-enter {
+    opacity: 0.01;
+    transform: scale(1.1);
+}
+
+.dialog-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 300ms;
+}
+
+.dialog-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dialog-exit-active {
+    opacity: 0.01;
+    transform: scale(1.1);
+    transition: all 300ms;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { groupBy } from '../../lib/global.helpers'
+import { groupBy } from '../../../lib/global.helpers'
 
 const ListFilter = props => {
     const genresList = groupBy(props.list, 'genre')

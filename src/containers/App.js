@@ -7,6 +7,7 @@ import {
 
 import API from '../lib/api'
 import { groupListByDate } from '../components/List/helpers'
+import { chunkArray } from '../lib/global.helpers'
 import Header from '../components/Base/Header'
 import List from '../components/List/List'
 import Details from '../components/Details/Details'
@@ -18,16 +19,20 @@ class App extends Component {
         list: [],
         filteredList: [],
         activeDetails: {},
+        chunkIndex: 0,
     }
     
     componentDidMount () {
         API.get(`/public/events`)
            .then(res => {
                const list = groupListByDate(res.data)
+               const chunkedList = chunkArray(list, 20)
+               console.log(chunkedList)
                this.setState({
                    list,
+                   // filteredList: chunkedList[this.state.chunkIndex],
                    filteredList: list,
-                   activeDetails: list[3]
+                   activeDetails: {},
                })
            })
     }
@@ -59,9 +64,3 @@ class App extends Component {
 }
 
 export default App
-
-// https://reacttraining.com/react-router/web/example/url-params
-// https://towardsdatascience.com/passing-data-between-react-components-parent-children-siblings-a64f89e24ecf
-
-// https://github.com/rajatgeekyants/superhero DATAPROVIDER
-// https://www.taniarascia.com/using-context-api-in-react/

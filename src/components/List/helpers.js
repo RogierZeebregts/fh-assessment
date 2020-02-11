@@ -6,8 +6,8 @@ import Moment from 'moment'
  */
 export function groupListByDate (json) {
     return json
-    const list = _createGroupedList(json)
-    return list
+    // const list = _createGroupedList(json)
+    // return list
     // return _convertObjectToArray(list)
 }
 
@@ -28,31 +28,6 @@ function _createGroupedList (json) {
         return obj
     }, [])
 }
-
-// let test = {
-//     date: '02022020',
-//     items: [
-//         {},
-//         {},
-//     ],
-// }
-
-// let group = cars.reduce((r, a) => {
-//     console.log("a", a);
-//     console.log('r', r);
-//     r[a.make] = [...r[a.make] || [], a];
-//     return r;
-// }, {});
-// console.log("group", group);
-
-// var groupBy = function(xs, key) {
-//     return xs.reduce(function(rv, x) {
-//         (rv[x[key]] = rv[x[key]] || []).push(x);
-//         return rv;
-//     }, {});
-// };
-//
-// console.log(groupBy(['one', 'two', 'three'], 'length'));
 
 /**
  * Generator
@@ -75,15 +50,6 @@ function _convertObjectToArray (obj) {
     // console.debug(values(obj))
     // let arr = Array.from(values(obj))
     
-}
-
-/**
- * @param dig
- * @returns {string}
- * @private
- */
-function _addLeadingZero (dig) {
-    return (dig < 10 ? '0' : '') + dig
 }
 
 /**
@@ -117,6 +83,11 @@ export function setGenre (event, list, t) {
     t.setState({filteredList: returnList})
 }
 
+/**
+ * @param event
+ * @param data
+ * @param t
+ */
 export function changeDetailsHandler(event, data, t) {
     t.setState({activeDetails: data})
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import ListItem from './_ListItem'
-import ListFilter from './_ListFilter'
+import ListItem from './components/ListItem'
+import ListFilter from './components/ListFilter'
 
 import { filterHandler, setGenre, changeDetailsHandler } from './helpers'
 
@@ -15,6 +15,7 @@ const ListContainer = (props) => {
     
     return (
         <div>
+            <h1 className="large d-flex justify-content-center mb-5 pl-5 pt-5">Programma</h1>
             <ListFilter
                 list={props.list}
                 filteredList={props.filteredList}

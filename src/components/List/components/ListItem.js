@@ -1,9 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import slugify from 'slugify'
-import DateFormat from '../Base/DateFormat'
+import DateFormat from '../../Base/DateFormat'
 
-import classes from './List.module.scss'
+import classes from '../List.module.scss'
 
 const ListItem = props => {
     const url = `/${props.data.id}/${slugify(props.data.title)}`
