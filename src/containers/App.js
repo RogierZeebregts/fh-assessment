@@ -26,8 +26,9 @@ class App extends Component {
         API.get(`/public/events`)
            .then(res => {
                const list = groupListByDate(res.data)
-               const chunkedList = chunkArray(list, 20)
+               const chunkedList = chunkArray(list, 10)
                // console.log(chunkedList)
+               
                this.setState({
                    list,
                    // filteredList: chunkedList[this.state.chunkIndex],

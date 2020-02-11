@@ -59,6 +59,7 @@ function _convertObjectToArray (obj) {
  * @param t
  */
 export function filterHandler (event, list, t) {
+    event.preventDefault()
     const searchValue = event.target.value
     const returnList = list.filter(ev => {
         return (
@@ -88,6 +89,16 @@ export function setGenre (event, list, t) {
  * @param data
  * @param t
  */
-export function changeDetailsHandler(event, data, t) {
+export function changeDetailsHandler (event, data, t) {
     t.setState({activeDetails: data})
+}
+
+/**
+ * @param event
+ */
+export function changeChunkIndexHandler (event, t) {
+    event.preventDefault()
+    
+    const key = parseInt(event.target.dataset.key) + 1
+    t.setState({chunkIndex: key})
 }
