@@ -7,7 +7,6 @@ import {
 
 import API from '../lib/api'
 import { groupListByDate } from '../components/List/helpers'
-import { chunkArray } from '../lib/global.helpers'
 import Header from '../components/Base/Header'
 import List from '../components/List/List'
 import Details from '../components/Details/Details'
@@ -26,12 +25,8 @@ class App extends Component {
         API.get(`/public/events`)
            .then(res => {
                const list = groupListByDate(res.data)
-               const chunkedList = chunkArray(list, 10)
-               // console.log(chunkedList)
-               
                this.setState({
                    list,
-                   // filteredList: chunkedList[this.state.chunkIndex],
                    filteredList: list,
                    activeDetails: {},
                })

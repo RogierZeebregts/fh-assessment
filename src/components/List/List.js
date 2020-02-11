@@ -1,13 +1,11 @@
 import React from 'react'
 import ListItem from './components/ListItem'
 import ListFilter from './components/ListFilter'
-import ListPager from './components/ListPager'
 
 import {
     filterHandler,
-    setGenre,
+    setGenreHandler,
     changeDetailsHandler,
-    changeChunkIndexHandler,
 } from './helpers'
 
 const ListContainer = (props) => {
@@ -26,15 +24,15 @@ const ListContainer = (props) => {
                 list={props.list}
                 filteredList={props.filteredList}
                 changed={(event) => filterHandler(event, props.list, props.this)}
-                genreChanged={(event) => setGenre(event, props.list, props.this)}
+                genreChanged={(event) => setGenreHandler(event, props.list, props.this)}
             />
             
             {list}
     
-            <ListPager
-                list={props.filteredList}
-                chunkIndexChanged={(event) => changeChunkIndexHandler(event, props.this)}
-            />
+            {/*<ListPager*/}
+            {/*    list={props.filteredList}*/}
+            {/*    chunkIndexChanged={(event) => changeChunkIndexHandler(event, props.this)}*/}
+            {/*/>*/}
         </div>
     )
 }

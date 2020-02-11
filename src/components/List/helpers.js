@@ -77,7 +77,7 @@ export function filterHandler (event, list, t) {
  * @param filteredList
  * @param t
  */
-export function setGenre (event, list, t) {
+export function setGenreHandler (event, list, t) {
     const genre = event.target.value
     const returnList = genre ? list.filter(ev => ev.genre === genre) : list
     
