@@ -27,7 +27,7 @@ class App extends Component {
            .then(res => {
                const list = groupListByDate(res.data)
                const chunkedList = chunkArray(list, 20)
-               console.log(chunkedList)
+               // console.log(chunkedList)
                this.setState({
                    list,
                    // filteredList: chunkedList[this.state.chunkIndex],
@@ -45,7 +45,10 @@ class App extends Component {
                     <Router>
                         <Switch>
                             <Route path="/:id/:slug">
-                                <Details data={this.state.activeDetails}/>
+                                <Details
+                                    list={this.state.list}
+                                    data={this.state.activeDetails}
+                                />
                             </Route>
                             
                             <Route path="/">

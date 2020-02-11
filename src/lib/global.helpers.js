@@ -25,6 +25,11 @@ export function chunkArray (array, size) {
     return chunked_arr
 }
 
-export function fetchDetails(list, id) {
-
+/**
+ * @param list
+ * @param id
+ * @returns {*}
+ */
+export function fetchDetails (list, id) {
+    return list.find(el => el.id === parseInt(id))
 }

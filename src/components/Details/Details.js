@@ -1,28 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Spotlight from './components/DetailsSpotlight'
-import ReactHtmlParser from 'react-html-parser'
 
-import {fetchDetails} from '../../lib/global.helpers'
+import { fetchDetails } from '../../lib/global.helpers'
 import classes from './Details.module.scss'
 import { withRouter } from 'react-router'
 
 const details = (props) => {
-    let {id, slug} = props.match.params
+    let {id} = props.match.params
     
-    // const data =
+    let details = null
+    const detailsData = fetchDetails(props.list, id)
     
-    return <div>
-        <div className="d-flex justify-content-end w-100">
-            <Link className="button bg-black br-white" to={'/'}>Terug</Link>
-        </div>
+    if (detailsData && detailsData.hasOwnProperty('title')) {
+        function descriptionMarkup () {
+            return {__html: detailsData.description}
+        }
         
-        <Spotlight data={props.data}/>
-        
-        <article className={`${classes.EventInfo} pb-4`}>
-            <div>{ReactHtmlParser(props.data.description)}</div>
-        </article>
-    </div>
+        details = (
+            <div>
+                <div className="d-flex justify-content-end w-100">
+                    <Link className="button bg-black br-white" to={'/'}>Terug</Link>
+                </div>
+                
+                <Spotlight data={detailsData}/>
+                
+                <article className={`${classes.EventInfo} pb-4`}>
+                    <div dangerouslySetInnerHTML={descriptionMarkup()}/>
+                </article>
+            </div>
+        )
+    }
+    
+    return details
 }
 
 export default withRouter(details)
