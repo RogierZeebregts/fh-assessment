@@ -6,18 +6,26 @@ import DateFormat from '../Base/DateFormat'
 import Photos from './_Photos'
 
 import classes from './Details.module.scss'
-import Event from '../../assets/event'
 
 const details = (props) => {
+    let spotlightImage = null
+    let imageModal = null
+    if (props.data.hasOwnProperty('images') && props.data.images.length) {
+        spotlightImage = (
+            <div className={classes.spotlight__imageholder}>
+                <img className={`${classes.image} rounded`} src={props.data.images[0]} alt={props.data.performer}/>
+            </div>
+        )
+        imageModal = <Photos images={props.data.images}/>
+    }
+    
     return <div>
         <div className="d-flex justify-content-end w-100">
             <Link className="button bg-black br-white" to={'/'}>Terug</Link>
         </div>
         
         <div className={`${classes.spotlight} d-flex`}>
-            <div className={classes.spotlight__imageholder}>
-                {/*<img className={`${classes.image} rounded`} src={props.data.images[0]} alt={props.data.performer}/>*/}
-            </div>
+            {spotlightImage}
             
             <div className={`${classes.spotlight__content} d-flex align-items-center`}>
                 <div>
@@ -28,7 +36,7 @@ const details = (props) => {
                     <div className={`${classes.EventInfo} pt-5`}>
                         <div>
                             <span className="pb-3 pr-4 pt-3">{props.data.genre}</span>
-                            <span className="pb-3 pr-4 pt-3">Locatie <span className="bold">{props.data.location}</span></span>
+                            <span className="pb-3 pr-4 pt-3">Locatie: <span className="bold">{props.data.location}</span></span>
                         </div>
                         <div className="d-flex">
                             <span className="bold pb-3 pr-4 pt-3"><Moment date={props.data.startsAt} format='dd DD MMM YYYY' locale={'nl'}/> </span>
@@ -36,7 +44,7 @@ const details = (props) => {
                             <span className="pb-3 pr-4 pt-3">Einde: <span className="bold"><Moment date={props.data.endsAt} format='HH:mm'/></span></span>
                         </div>
                         
-                        {/*<Photos photos={props.data.images} />*/}
+                        {imageModal}
                     </div>
                 </div>
             </div>

@@ -84,6 +84,7 @@ h1.large {
         background: transparent;
         border: none;
         border-bottom: solid 1px #fff;
+        border-radius: 0;
         color: #fff;
         font-size: 1.2rem;
         height: 100%;
@@ -91,6 +92,7 @@ h1.large {
         outline: none;
         position: relative;
         width: 100%;
+        -webkit-appearance: none;
         &::-ms-expand {
             display: none;
         }

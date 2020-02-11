@@ -16,7 +16,7 @@ const Photos = props => {
     }
     
     let photoButton = null
-    if (props.photos.length > 1) {
+    if (props.images.length > 1) {
         photoButton = <div>
             <a className="button bg-black br-white mt-4" href="#" onClick={openLightbox}>Bekijk foto's</a>
             <ModalGateway>
@@ -24,7 +24,7 @@ const Photos = props => {
                     <Modal onClose={closeLightbox}>
                         <Carousel
                             currentIndex={currentImage}
-                            views={props.photos.map(x => ({
+                            views={props.images.map(x => ({
                                 ...x,
                                 srcset: x,
                             }))}

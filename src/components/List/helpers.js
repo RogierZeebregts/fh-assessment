@@ -116,3 +116,7 @@ export function setGenre (event, list, t) {
     
     t.setState({filteredList: returnList})
 }
+
+export function changeDetailsHandler(event, data, t) {
+    t.setState({activeDetails: data})
+}

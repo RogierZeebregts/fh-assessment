@@ -17,13 +17,13 @@ const ListItem = props => {
                     </div>
                     
                     <div className="p-2">
-                        <h2><Link to={url}>{props.data.performer}</Link></h2>
+                        <h2><Link to={url} onClick={props.detailsChanged}>{props.data.performer}</Link></h2>
                         <h3>{props.data.title}</h3>
                     </div>
                     
                     <div className="flex-grow-1 d-flex justify-content-end align-items-center">
                         <span className={classes.genre}>{props.data.genre}</span>
-                        <Link className={`${classes.button} button bg-black br-white`} to={url}>Tickets</Link>
+                        <Link className={`${classes.button} button bg-black br-white`} to={url} onClick={props.detailsChanged}>Tickets</Link>
                     </div>
                 </div>
             </div>

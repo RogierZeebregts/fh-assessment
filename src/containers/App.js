@@ -27,7 +27,7 @@ class App extends Component {
                this.setState({
                    list,
                    filteredList: list,
-                   activeDetails: list[0]
+                   activeDetails: list[3]
                })
            })
     }
