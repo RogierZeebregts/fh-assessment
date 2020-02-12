@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom'
 
 import API from '../lib/api'
-import { groupListByDate } from '../components/List/helpers'
 import Header from '../components/Base/Header'
 import List from '../components/List/List'
 import Details from '../components/Details/Details'
@@ -24,7 +23,7 @@ class App extends Component {
     componentDidMount () {
         API.get(`/public/events`)
            .then(res => {
-               const list = groupListByDate(res.data)
+               const list = res.data
                this.setState({
                    list,
                    filteredList: list,

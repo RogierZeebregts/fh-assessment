@@ -1,17 +1,6 @@
 import Moment from 'moment'
 
 /**
- * @param json
- * @returns {[]}
- */
-export function groupListByDate (json) {
-    return json
-    // const list = _createGroupedList(json)
-    // return list
-    // return _convertObjectToArray(list)
-}
-
-/**
  * Create Grouped List
  * @param json
  * @returns {*}
@@ -39,17 +28,6 @@ function _createGroupedList (json) {
 function _convertObjectToArray (obj) {
     let arr = Object.keys(obj).map((k) => obj[k])
     return arr
-    
-    // function * values (obj) {
-    //     for (let prop in obj) {
-    //         // console.debug(prop);
-    //         yield obj[prop]
-    //     }
-    // }
-    //
-    // console.debug(values(obj))
-    // let arr = Array.from(values(obj))
-    
 }
 
 /**
