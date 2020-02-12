@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { getCurrentGenres, getData } from '../../redux/actions'
 import { connect } from 'react-redux'
 
 export class EventListFilter extends Component {
-    componentDidMount () {
-        this.props.getCurrentGenres()
-    }
-    
     render () {
+        const genres = this.props.genres.map((genre, index) => {
+            return <option value={genre} key={index}>{genre}</option>
+        })
+        
         return (
             <div className="d-flex align-items-center pb-4 pt-4">
                 <span className="pr-3">Zoek</span>
@@ -17,6 +16,7 @@ export class EventListFilter extends Component {
                     <span className="pr-3">Soort</span>
                     <select className="select-input">
                         <option value={``}>Alle</option>
+                        {genres}
                     </select>
                 </div>
                 
@@ -36,5 +36,4 @@ function mapStateToProps (state) {
 
 export default connect(
     mapStateToProps,
-    {getCurrentGenres},
 )(EventListFilter)
