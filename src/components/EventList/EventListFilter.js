@@ -21,7 +21,7 @@ export class EventListFilter extends Component {
                 </div>
                 
                 <div className="flex-grow-1 d-flex justify-content-end">
-                    resultaten
+                    {this.props.list.length} resultaten
                 </div>
             </div>
         )
@@ -30,6 +30,7 @@ export class EventListFilter extends Component {
 
 function mapStateToProps (state) {
     return {
+        list: state.eventsList,
         genres: state.genresList,
     }
 }

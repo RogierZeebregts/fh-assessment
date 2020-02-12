@@ -1,0 +1,31 @@
+.spotlight__content {
+    flex: 0 1 80%;
+    min-height: 65vh;
+    position: relative;
+    
+    h1 {
+        font-size: 4.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+        font-weight: 300;
+        letter-spacing: 3px;
+    }
+    .meta {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+    }
+}
+
+.spotlight__imageholder {
+    height: 60vh;
+    left: 50%;
+    position: absolute;
+    width: 60vh;
+    
+    .image {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
