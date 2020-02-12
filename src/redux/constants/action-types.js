@@ -1,1 +1,2 @@
-export const ADD_LIST = "ADD_LIST";
+export const EVENTS_LOADED = 'EVENTS_LOADED'
+export const GENRES_LOADED = 'GENRES_LOADED'

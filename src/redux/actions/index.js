@@ -1,20 +1,27 @@
-import { ADD_LIST } from '../constants/action-types'
+import {
+    EVENTS_LOADED,
+    GENRES_LOADED,
+} from '../constants/action-types'
 
-/**
- * @param payload
- * @returns {{payload: *, type: string}}
- */
-export function addList (payload) {
-    return {type: ADD_LIST, payload}
+import store from '../store'
+
+export function getData () {
+    return function (dispatch) {
+        return fetch(`${process.env.REACT_APP_THEATER_BASEURL}/public/events`)
+            .then(response => response.json())
+            .then(json => {
+                dispatch({type: EVENTS_LOADED, payload: json})
+            })
+    }
 }
 
-/**
- * @returns {Promise<{payload: any, type: string}>}
- */
-export function getData () {
-    return fetch(`${process.env.REACT_APP_THEATER_BASEURL}/public/events`)
-        .then(response => response.json())
-        .then(json => {
-            return {type: 'DATA_LOADED', payload: json}
+export function getCurrentGenres () {
+    return function (dispatch) {
+        dispatch({
+            type: GENRES_LOADED, payload: {
+                0: 0,
+                1: 1,
+            },
         })
+    }
 }

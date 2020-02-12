@@ -1,18 +1,26 @@
-import { ADD_LIST } from '../constants/action-types'
+import {
+    EVENTS_LOADED,
+    GENRES_LOADED,
+} from '../constants/action-types'
 
 const initialState = {
-    list: [],
+    eventsList: [],
+    genresList: [],
 }
 
-/**
- * @param state
- * @param action
- * @returns {{list: []}|*[]}
- */
 function rootReducer (state = initialState, action) {
-    if (action.type === ADD_LIST) {
-        return [...{list: state.list.concat(action.payload)}]
+    if (action.type === EVENTS_LOADED) {
+        return Object.assign({}, state, {
+            eventsList: state.eventsList.concat(action.payload),
+        })
     }
+    
+    if (action.type === GENRES_LOADED) {
+        return Object.assign({}, state, {
+            genresList: state.genresList.concat(action.payload),
+        })
+    }
+    
     return state
 }
 

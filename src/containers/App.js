@@ -11,8 +11,6 @@ import Header from '../components/Base/Header'
 import List from '../components/List/List'
 import Details from '../components/Details/Details'
 
-import ListRedux from '../redux/containers/List/List'
-
 import './App.scss'
 
 class App extends Component {
@@ -50,7 +48,6 @@ class App extends Component {
                             </Route>
                             
                             <Route path="/">
-                                <ListRedux/>
                                 <List
                                     list={this.state.list}
                                     filteredList={this.state.filteredList}
