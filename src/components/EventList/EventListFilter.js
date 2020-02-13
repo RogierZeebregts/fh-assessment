@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setEventtypeFilter } from '../../redux/actions'
+import { setEventtypeFilter, setEventinputFilter } from '../../redux/actions'
 
 const mapStateToProps = state => {
     return {
@@ -14,18 +14,22 @@ const EventListFilter = props => {
         return <option value={genre} key={index}>{genre}</option>
     })
     
-    const changeHandler = event => {
+    const inputChangeHandler = event => {
+        props.setEventinputFilter(event.target.value)
+    }
+    
+    const genreChangeHandler = event => {
         props.setEventtypeFilter(event.target.value)
     }
     
     return (
         <div className="d-flex align-items-center pb-4 pt-4">
             <span className="pr-3">Zoek</span>
-            <input className="text-input" placeholder="op evenement of artiest"/>
+            <input className="text-input" placeholder="op evenement of artiest" onChange={inputChangeHandler} />
             
             <div className="select-container d-flex align-items-center pl-4 pr-4">
                 <span className="pr-3">Soort</span>
-                <select className="select-input" onChange={changeHandler}>
+                <select className="select-input" onChange={genreChangeHandler}>
                     <option value={``}>Alle</option>
                     {genres}
                 </select>
@@ -40,5 +44,8 @@ const EventListFilter = props => {
 
 export default connect(
     mapStateToProps,
-    {setEventtypeFilter}
+    {
+        setEventtypeFilter,
+        setEventinputFilter
+    }
 )(EventListFilter)
