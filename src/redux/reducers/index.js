@@ -14,30 +14,34 @@ const initialState = {
 
 function rootReducer (state = initialState, action) {
     if (action.type === EVENTS_LOADED) {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             eventsList: state.eventsList = action.payload,
             allList: state.eventsList = action.payload,
-        })
+        }
     }
     
     if (action.type === EVENT_LOADED) {
-        return Object.assign({}, state, {
+        return {
+            ...state,
             event: state.allList.find(el => el.id === parseInt(action.payload)),
-        })
+        }
     }
     
     if (action.type === EVENTTYPES_LOADED) {
-        return Object.assign({}, state, {
-            genresList: state.genresList = action.payload,
-        })
+        return {
+            ...state,
+            genresList: action.payload,
+        }
     }
     
     if (action.type === EVENTTYPES_FILTER_SET) {
         const genre = action.payload
         const list = genre ? state.allList.filter(ev => ev.genre === genre) : state.allList
-        return Object.assign({}, state, {
-            eventsList: state.eventsList = list,
-        })
+        return {
+            ...state,
+            eventsList: list,
+        }
     }
     
     if (action.type === EVENTINPUT_FILTER_SET) {
@@ -49,9 +53,10 @@ function rootReducer (state = initialState, action) {
             )
         })
         
-        return Object.assign({}, state, {
-            eventsList: state.eventsList = list,
-        })
+        return {
+            ...state,
+            eventsList: list,
+        }
     }
     
     return state
