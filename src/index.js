@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 
 import store from './redux/store'
-import App from './containers/AppRedux'
+import App from './containers/App'
 
 import 'bootstrap-4-grid/scss/grid/bootstrap-grid.scss'
 

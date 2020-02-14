@@ -1,4 +1,5 @@
 import {
+    EVENT_LOADED,
     EVENTS_LOADED,
     EVENTS_LOADED_PENDING,
     EVENTS_LOADED_FAILED,
@@ -22,12 +23,16 @@ export const getEventList = _ => {
     }
 }
 
+export const getEvent = payload => (
+    {type: EVENT_LOADED, payload}
+)
+
 export const setEventtypeFilter = payload => (
-     { type: EVENTTYPES_FILTER_SET, payload }
+    {type: EVENTTYPES_FILTER_SET, payload}
 )
 
 export const setEventinputFilter = payload => (
-     { type: EVENTINPUT_FILTER_SET, payload }
+    {type: EVENTINPUT_FILTER_SET, payload}
 )
 
 function _groupBy (list, key) {
