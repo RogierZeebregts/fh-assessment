@@ -21,7 +21,6 @@ function rootReducer (state = initialState, action) {
     }
     
     if (action.type === EVENT_LOADED) {
-        const test = state.allList.find(el => el.id === parseInt(action.payload))
         return Object.assign({}, state, {
             event: state.allList.find(el => el.id === parseInt(action.payload)),
         })
