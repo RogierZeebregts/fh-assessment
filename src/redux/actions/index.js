@@ -4,7 +4,8 @@ import {
     EVENTS_LOADED_PENDING,
     EVENTS_LOADED_FAILED,
     EVENTTYPES_LOADED,
-    EVENTTYPES_FILTER_SET, EVENTINPUT_FILTER_SET,
+    EVENTTYPES_FILTER_SET,
+    EVENTINPUT_FILTER_SET,
 } from '../constants/action-types'
 
 export const getEventList = _ => {
